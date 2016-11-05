@@ -105,7 +105,7 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
             CustomViewHolder(View itemView) {
 
                 super(itemView);
-                titleTV = (TextView) itemView.findViewById(R.id.title_view);
+                titleTV = (TextView) itemView.findViewById(R.id.tv_movie);
                 itemView.setOnClickListener(this);
             }
 
