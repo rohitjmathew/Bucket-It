@@ -8,14 +8,36 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#2196f3"
+
+    android:alpha="1"
     tools:context="com.example.rohitmathew.bucket_it.Login">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
 
+        android:layout_height="match_parent">
+<ImageView
+    android:layout_width="match_parent"
+    android:src="@drawable/academia"
+    android:id="@+id/fuck"
+    android:layout_height="250dp" />
 
+<Space
+    android:layout_width="wrap_content"
+    android:layout_height="150dp"
+    android:id="@+id/ok"
+    android:layout_below="@+id/fuck"
+    />
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btn_sign_in"
+        android:layout_below="@+id/ok"
+
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:layout_marginBottom="20dp" />
 
 
-</LinearLayout>
+</RelativeLayout>
+    </LinearLayout>

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\Rohit Mathew\\Downloads\\Bucket-It\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\common_ic_googleplayservices.png",
-        "source": "C:\\Users\\Rohit Mathew\\Downloads\\Bucket-It\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\drawable-ldpi-v4\\common_ic_googleplayservices.png"
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/C:\\Users\\Rohit Mathew\\Downloads\\Bucket-It\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\common_ic_googleplayservices.png",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/C:\\Users\\Rohit Mathew\\Downloads\\Bucket-It\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.2.1\\res\\drawable-ldpi-v4\\common_ic_googleplayservices.png"
+    },
+    {
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/common_ic_googleplayservices.png",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/res/drawable-ldpi-v4/common_ic_googleplayservices.png"
     }
 ]
