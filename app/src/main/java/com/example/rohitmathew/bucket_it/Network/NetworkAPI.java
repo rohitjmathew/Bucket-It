@@ -4,11 +4,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.rohitmathew.bucket_it.Auth.OnLoginListener;
 import com.example.rohitmathew.bucket_it.BucketList.BucketListInteracter;
 import com.example.rohitmathew.bucket_it.models.Bucket;
 
@@ -32,6 +34,7 @@ public class NetworkAPI {
     final String baseURL = "http://www.filtershots.com:8080";
     final String buckets = "/bucket";
     final String items = "/item";
+    final String login = "/googleLogin";
     String accessToken = "";
 
     NetworkAPI (Context context) {
@@ -62,7 +65,7 @@ public class NetworkAPI {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                listener.onFetchFail();
             }
         }){
             @Override
@@ -85,6 +88,7 @@ public class NetworkAPI {
             }
         } catch (JSONException e) {
             e.printStackTrace();
+            listener.onFetchFail();
         }
     }
 
@@ -99,5 +103,44 @@ public class NetworkAPI {
             e.printStackTrace();
         }
         listener.onFetchSuccess(buckets);
+    }
+
+    public void getAccessToken(String idToken, final OnLoginListener listener) {
+
+        final Map<String, String> params = new HashMap<>();
+        params.put("tokenId", idToken);
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, baseURL + login, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                processLoginresponse(response, listener);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                return params;
+            }
+        };
+
+        requestQueue.add(request);
+    }
+
+    private void processLoginresponse(JSONObject response, OnLoginListener listener) {
+
+        try {
+            boolean success = response.getBoolean("success");
+            if(success) {
+                String accessToken = response.getString("accessToken");
+                listener.onSuccess(accessToken);
+            } else listener.onFail();
+        } catch (Exception e) {
+            e.printStackTrace();
+            listener.onFail();
+        }
     }
 }

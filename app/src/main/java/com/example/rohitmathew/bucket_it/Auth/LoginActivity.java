@@ -11,7 +11,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.rohitmathew.bucket_it.BucketListActivity;
+import com.example.rohitmathew.bucket_it.BucketList.BucketListActivity;
+import com.example.rohitmathew.bucket_it.Network.NetworkAPI;
 import com.example.rohitmathew.bucket_it.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -25,7 +26,7 @@ import com.google.android.gms.common.api.ResultCallback;
 
 
 public class LoginActivity extends AppCompatActivity implements
-        View.OnClickListener,
+        View.OnClickListener, OnLoginListener,
         GoogleApiClient.OnConnectionFailedListener {
 
         private static final String TAG = LoginActivity.class.getSimpleName();
@@ -75,6 +76,9 @@ public class LoginActivity extends AppCompatActivity implements
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
+            String idToken = acct.getIdToken();
+            NetworkAPI networkAPI = NetworkAPI.getInstance(getApplicationContext());
+            networkAPI.getAccessToken(idToken, this);
             Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_SHORT).show();
             Intent bucket = new Intent(LoginActivity.this, BucketListActivity.class);
             startActivity(bucket);
@@ -167,4 +171,14 @@ public class LoginActivity extends AppCompatActivity implements
 
             }
         }
+
+    @Override
+    public void onSuccess(String accessToken) {
+
     }
+
+    @Override
+    public void onFail() {
+
+    }
+}
