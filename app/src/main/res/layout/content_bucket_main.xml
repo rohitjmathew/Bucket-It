@@ -17,6 +17,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
                 android:scaleType="centerCrop"
+                android:alpha="0.8"
                 android:src="@drawable/a" />
             <TextView
                 android:id="@+id/user_profile_name"
@@ -51,6 +52,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="60dp"
+                android:textSize="22dp"
                 android:hint="Enter Text"
                 android:background="@android:color/transparent"
                 android:cursorVisible="false"/>
