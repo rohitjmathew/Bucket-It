@@ -20,6 +20,7 @@ public class BucketListInteracterImpl implements BucketListInteracter {
     @Override
     public void fetchFromNetwork(OnListFetchedListener listener) {
 
+        networkAPI.getBuckets(listener);
     }
 
     @Override
