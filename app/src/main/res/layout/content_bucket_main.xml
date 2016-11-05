@@ -20,9 +20,10 @@
                 android:src="@drawable/a" />
             <TextView
                 android:id="@+id/user_profile_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:textAlignment="center"
                 android:layout_marginTop="76dp"
                 android:text="Name"
                 android:textColor="#fff"
@@ -45,7 +46,7 @@
                 android:layout_height="60dp"
                 android:layout_centerHorizontal="true" />
 
-            <EditText
+            <TextView
                 android:id="@+id/Id"
                 android:layout_width="0dp"
                 android:layout_weight="1"
