@@ -3,41 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#2196f3"
+    android:alpha="1">
 
-    android:alpha="1"
-    tools:context="com.example.rohitmathew.bucket_it.Login">
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ImageView
         android:layout_width="match_parent"
+        android:src="@drawable/bucketit"
+        android:id="@+id/fuck"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"/>
 
-        android:layout_height="match_parent">
-<ImageView
-    android:layout_width="match_parent"
-    android:src="@drawable/academia"
-    android:id="@+id/fuck"
-    android:layout_height="250dp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/typeform"
+        android:id="@+id/fuck1"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.2" />
 
-<Space
-    android:layout_width="wrap_content"
-    android:layout_height="150dp"
-    android:id="@+id/ok"
-    android:layout_below="@+id/fuck"
-    />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:layout_gravity="center_horizontal" />
+
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btn_sign_in"
         android:layout_below="@+id/ok"
-
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="75dp" />
 
 
-</RelativeLayout>
     </LinearLayout>
