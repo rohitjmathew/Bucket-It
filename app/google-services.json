@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "651586251013",
+    "firebase_url": "https://buckist-d2711.firebaseio.com",
+    "project_id": "buckist-d2711",
+    "storage_bucket": "buckist-d2711.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651586251013:android:07931c7a19de2de2",
+        "android_client_info": {
+          "package_name": "com.example.rohitmathew.bucket_it"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651586251013-k3m29imn9a27vtch13e6q098p68ppoul.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rohitmathew.bucket_it",
+            "certificate_hash": "95796E09BA6FBFFFD6DA13B7B33761AD285472A3"
+          }
+        },
+        {
+          "client_id": "651586251013-gkom1d955s09nquvbs1r1ja10uckvldn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_qZ-30lfjbNewvuRn5mzqgMehHEKg96Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651586251013-gkom1d955s09nquvbs1r1ja10uckvldn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
