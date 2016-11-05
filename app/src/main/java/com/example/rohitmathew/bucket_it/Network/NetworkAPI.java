@@ -2,6 +2,7 @@ package com.example.rohitmathew.bucket_it.Network;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -9,6 +10,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.rohitmathew.bucket_it.Auth.OnLoginListener;
 import com.example.rohitmathew.bucket_it.BucketList.BucketListInteracter;
@@ -109,20 +111,31 @@ public class NetworkAPI {
 
         final Map<String, String> params = new HashMap<>();
         params.put("tokenId", idToken);
+        Log.e("NetworkAPI", idToken);
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, baseURL + login, null, new Response.Listener<JSONObject>() {
+        StringRequest request = new StringRequest(Request.Method.POST, baseURL + login, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONObject response) {
-                processLoginresponse(response, listener);
+            public void onResponse(String response) {
+                try {
+                    processLoginresponse(new JSONObject(response), listener);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.e("NetworkAPI", error.toString());
+                listener.onFail();
             }
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
                 return params;
             }
         };
