@@ -22,24 +22,33 @@ public class BucketMain extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //make new checkbox layout thing
             }
         });
 
         CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox1);
         final TextView textView = (TextView) findViewById(R.id.Id);
-        if(checkBox.isChecked()){
+        if(checkBox.isChecked()) {
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    textView.setCursorVisible(true);
-                    textView.setFocusableInTouchMode(true);
-                    textView.setInputType(InputType.TYPE_CLASS_TEXT);
-                    textView.requestFocus();
+                    textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 }
             });
         }
+        else{
+            textView.setPaintFlags(textView.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+        }
+        final TextView textView2 = (TextView) findViewById(R.id.user_profile_name);
+        textView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView2.setCursorVisible(true);
+                textView2.setFocusableInTouchMode(true);
+                textView2.setInputType(InputType.TYPE_CLASS_TEXT);
+                textView2.requestFocus();
+            }
+        });
     }
 
 }
