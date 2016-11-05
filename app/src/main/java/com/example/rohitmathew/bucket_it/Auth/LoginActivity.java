@@ -1,7 +1,9 @@
 package com.example.rohitmathew.bucket_it.Auth;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -168,17 +170,19 @@ public class LoginActivity extends AppCompatActivity implements
 
             } else {
                 btnSignIn.setVisibility(View.VISIBLE);
-
             }
         }
 
     @Override
     public void onSuccess(String accessToken) {
+        SharedPreferences.Editor editor = getApplicationContext().getSharedPreferences("AuthPrefs", Context.MODE_PRIVATE).edit();
+        editor.putString("accessToken", accessToken);
+        editor.apply();
 
     }
 
     @Override
     public void onFail() {
-
+        Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show();
     }
 }
