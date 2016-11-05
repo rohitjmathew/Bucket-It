@@ -1,7 +1,6 @@
-package com.example.rohitmathew.bucket_it;
+package com.example.rohitmathew.bucket_it.Auth;
 
 import android.app.ProgressDialog;
-import android.app.usage.NetworkStats;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,13 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.rohitmathew.bucket_it.BucketListActivity;
+import com.example.rohitmathew.bucket_it.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -25,14 +22,13 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 
 
-public class Login extends AppCompatActivity implements
+public class LoginActivity extends AppCompatActivity implements
         View.OnClickListener,
         GoogleApiClient.OnConnectionFailedListener {
 
-        private static final String TAG = Login.class.getSimpleName();
+        private static final String TAG = LoginActivity.class.getSimpleName();
         private static final int RC_SIGN_IN = 007;
 
         private GoogleApiClient mGoogleApiClient;
@@ -80,7 +76,7 @@ public class Login extends AppCompatActivity implements
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
             Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_SHORT).show();
-            Intent bucket = new Intent(Login.this, BucketList.class);
+            Intent bucket = new Intent(LoginActivity.this, BucketListActivity.class);
             startActivity(bucket);
             updateUI(true);
         } else {
