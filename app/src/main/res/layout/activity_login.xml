@@ -9,8 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#2196f3"
-    android:alpha="1"
-    tools:context="com.example.rohitmathew.bucket_it.Login">
+    android:alpha="1">
 
     <ImageView
         android:layout_width="match_parent"
