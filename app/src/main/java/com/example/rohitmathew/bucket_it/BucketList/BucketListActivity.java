@@ -29,7 +29,13 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
     List<Bucket> buckets = null;
     CustomRecyclerAdapter adapter = null;
     RecyclerView recyclerView = null;
+    BucketListPresenter presenter = null;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +43,6 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setupRecyclerView();
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +51,8 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
                 startActivity(add);
             }
         });
+
+        presenter = new BucketListPresenterImpl(this, getApplicationContext());
     }
 
 
@@ -66,7 +73,7 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
         this.buckets = buckets;
     }
 
-    class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAdapter.CustomViewHolder> implements View.OnClickListener {
+    class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAdapter.CustomViewHolder> {
 
 
         public CustomRecyclerAdapter() {
@@ -78,7 +85,6 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
             Context context = parent.getContext();
             LayoutInflater inflater = LayoutInflater.from(context);
             View itemView = inflater.inflate(R.layout.content_bucket_list, parent, false);
-            itemView.setOnClickListener(this);
             return new CustomRecyclerAdapter.CustomViewHolder(itemView);
         }
 
@@ -94,18 +100,21 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
             return buckets.size();
         }
 
-        @Override
-        public void onClick(View v) {
 
-        }
-
-        public class CustomViewHolder extends RecyclerView.ViewHolder {
+        class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
             TextView titleTV;
-            public CustomViewHolder(View itemView) {
-                super(itemView);
+            CustomViewHolder(View itemView) {
 
+                super(itemView);
                 titleTV = (TextView) itemView.findViewById(R.id.title_view);
+                itemView.setOnClickListener(this);
+            }
+
+            @Override
+            public void onClick(View view) {
+                int position = getAdapterPosition();
+                Toast.makeText(BucketListActivity.this, ""+position, Toast.LENGTH_SHORT).show();
             }
         }
     }

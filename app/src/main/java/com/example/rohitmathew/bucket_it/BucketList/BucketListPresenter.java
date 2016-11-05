@@ -7,4 +7,5 @@ package com.example.rohitmathew.bucket_it.BucketList;
 public interface BucketListPresenter {
 
 
+    void onResume();
 }
