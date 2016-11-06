@@ -1033,9 +1033,10 @@ int string google_storage_bucket 0x7f06003f
 int string hello 0x7f060040
 int string loading 0x7f060041
 int string search_menu_title 0x7f060024
+int string serverClientID 0x7f060042
 int string status_bar_notification_info_overflow 0x7f060025
-int string title_activity_bucket_list 0x7f060042
-int string title_activity_bucket_main 0x7f060043
+int string title_activity_bucket_list 0x7f060043
+int string title_activity_bucket_main 0x7f060044
 int style AlertDialog_AppCompat 0x7f08009c
 int style AlertDialog_AppCompat_Light 0x7f08009d
 int style Animation_AppCompat_Dialog 0x7f08009e

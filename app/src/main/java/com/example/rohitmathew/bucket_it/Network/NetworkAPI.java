@@ -58,10 +58,11 @@ public class NetworkAPI {
 
         final Map<String, String> headers = new HashMap<>();
         headers.put("accessToken", accessToken);
-
+        Log.e("NetworkAPI#getBuckets", accessToken);
         JsonObjectRequest request = new JsonObjectRequest(baseURL + buckets, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.e("NetworkAPI", ""+response.toString());
                 processBucketResponse(response, listener);
             }
         }, new Response.ErrorListener() {
@@ -99,9 +100,11 @@ public class NetworkAPI {
         List<Bucket> buckets = new ArrayList<>();
         try {
             for(int idx = 0; idx < bucketsArray.length(); idx++) {
+                Log.e("NetworkAPI#parseBuckets", "adding bucket");
                 buckets.add(new Bucket(bucketsArray.getJSONObject(idx)));
             }
         } catch (JSONException e) {
+            Log.e("NetworkAPI#parseBuckets", "exception while parsing buckets");
             e.printStackTrace();
         }
         listener.onFetchSuccess(buckets);
@@ -111,7 +114,7 @@ public class NetworkAPI {
 
         final Map<String, String> params = new HashMap<>();
         params.put("tokenId", idToken);
-        Log.e("NetworkAPI", idToken);
+        Log.e("NetworkAPI#getAccess", "id_token: "+idToken);
 
         StringRequest request = new StringRequest(Request.Method.POST, baseURL + login, new Response.Listener<String>() {
             @Override
@@ -155,5 +158,9 @@ public class NetworkAPI {
             e.printStackTrace();
             listener.onFail();
         }
+    }
+
+    public void setToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 }

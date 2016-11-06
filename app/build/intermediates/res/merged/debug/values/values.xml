@@ -619,7 +619,7 @@
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="action_settings">Settings</string>
-    <string name="app_name">Bucket-It</string>
+    <string name="app_name">Bucket+It</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="btn_logout_from_google">Logout from Google</string>
@@ -652,6 +652,7 @@
     <string name="hello">Hello</string>
     <string name="loading">Loading...</string>
     <string name="search_menu_title">Search</string>
+    <string name="serverClientID">651586251013-gkom1d955s09nquvbs1r1ja10uckvldn.apps.googleusercontent.com</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_bucket_list">BucketList</string>
     <string name="title_activity_bucket_main">BucketMain</string>

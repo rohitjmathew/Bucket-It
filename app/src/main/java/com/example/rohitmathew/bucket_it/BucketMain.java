@@ -3,13 +3,10 @@ package com.example.rohitmathew.bucket_it;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class BucketMain extends AppCompatActivity {
@@ -37,7 +34,7 @@ public class BucketMain extends AppCompatActivity {
             });
         }
         else{
-            textView.setPaintFlags(textView.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+            textView.setPaintFlags(textView.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
         }
         final TextView textView2 = (TextView) findViewById(R.id.user_profile_name);
         textView2.setOnClickListener(new View.OnClickListener() {
