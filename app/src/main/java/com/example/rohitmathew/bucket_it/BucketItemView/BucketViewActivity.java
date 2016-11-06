@@ -111,7 +111,7 @@ public class BucketViewActivity extends AppCompatActivity implements BucketView 
         }
 
 
-        class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
             TextView contentTV;
             CheckBox checkBox;
@@ -122,6 +122,7 @@ public class BucketViewActivity extends AppCompatActivity implements BucketView 
                 contentTV = (TextView) itemView.findViewById(R.id.Id);
                 checkBox = (CheckBox) itemView.findViewById(R.id.checkBox1);
                 itemView.setOnClickListener(this);
+                itemView.setOnLongClickListener(this);
             }
 
             @Override
@@ -134,6 +135,14 @@ public class BucketViewActivity extends AppCompatActivity implements BucketView 
                     contentTV.requestFocus();
                     checkBox.setChecked(false);
                 }
+            }
+
+            @Override
+            public boolean onLongClick(View view) {
+                int position = getLayoutPosition();
+                Bucket bucket = buckets.get(position);
+
+               return false;
             }
         }
     }
