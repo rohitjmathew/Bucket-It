@@ -71,14 +71,14 @@ ADDED from /Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/Android
 		ADDED from /Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/AndroidManifest.xml:22:13-56
 	android:name
 		ADDED from /Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/AndroidManifest.xml:20:13-58
-activity#com.example.rohitmathew.bucket_it.BucketMain
+activity#com.example.rohitmathew.bucket_it.BucketItemView.BucketViewActivity
 ADDED from /Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/AndroidManifest.xml:23:9-26:68
 	android:label
 		ADDED from /Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/AndroidManifest.xml:25:13-63
 	android:theme
 		ADDED from /Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/AndroidManifest.xml:26:13-56
 	android:name
-		ADDED from /Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/AndroidManifest.xml:24:13-39
+		ADDED from /Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/AndroidManifest.xml:24:13-62
 uses-sdk
 INJECTED from /Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [io.realm:realm-android-library:2.1.1] /Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/io.realm/realm-android-library/2.1.1/AndroidManifest.xml:5:5-7:41

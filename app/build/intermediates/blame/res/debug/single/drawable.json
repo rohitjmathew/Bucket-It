@@ -8,20 +8,20 @@
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
-        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
-    },
-    {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_go_search_api_material.xml"
     },
     {
-        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
-        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_cab_background_top_material.xml"
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/travel.jpg",
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/res/drawable/travel.jpg"
+    },
+    {
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_cab_background_top_material.xml"
     },
     {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",

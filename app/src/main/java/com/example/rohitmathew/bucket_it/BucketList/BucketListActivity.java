@@ -15,11 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.rohitmathew.bucket_it.BucketMain;
+import com.example.rohitmathew.bucket_it.BucketItemView.BucketViewActivity;
 import com.example.rohitmathew.bucket_it.R;
 import com.example.rohitmathew.bucket_it.models.Bucket;
-
-import java.util.List;
 
 import io.realm.RealmResults;
 
@@ -29,7 +27,7 @@ import io.realm.RealmResults;
 
 public class BucketListActivity extends AppCompatActivity implements BucketListView {
 
-    List<Bucket> buckets = null;
+    RealmResults<Bucket> buckets = null;
     CustomRecyclerAdapter adapter = null;
     RecyclerView recyclerView = null;
     BucketListPresenter presenter = null;
@@ -48,7 +46,7 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent add = new Intent(BucketListActivity.this,BucketMain.class);
+                Intent add = new Intent(BucketListActivity.this,BucketViewActivity.class);
                 startActivity(add);
             }
         });
@@ -123,7 +121,10 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
             public void onClick(View view) {
                 int position = getAdapterPosition();
                 Toast.makeText(BucketListActivity.this, ""+position, Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(BucketListActivity.this, BucketMain.class));
+                Bucket bucket = buckets.get(position);
+                Intent intent = new Intent(BucketListActivity.this, BucketViewActivity.class);
+                intent.putExtra("bucketId", bucket.bucketId);
+                startActivity(intent);
             }
         }
     }

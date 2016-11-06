@@ -39,7 +39,7 @@
             android:label="@string/title_activity_bucket_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.rohitmathew.bucket_it.BucketMain"
+            android:name="com.example.rohitmathew.bucket_it.BucketItemView.BucketViewActivity"
             android:label="@string/title_activity_bucket_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
