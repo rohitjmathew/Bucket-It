@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.example.rohitmathew.bucket_it.models.Bucket;
 
-import java.util.List;
+import io.realm.RealmResults;
 
 /**
  * Created by Eesh on 05/11/16.
@@ -21,7 +21,7 @@ public class BucketListPresenterImpl implements BucketListPresenter, BucketListI
     }
 
     @Override
-    public void onFetchSuccess(List<Bucket> buckets) {
+    public void onFetchSuccess(RealmResults<Bucket> buckets) {
         view.showList(buckets);
     }
 

@@ -15,7 +15,6 @@
         <ImageView
             android:id="@+id/img_thumbnail"
             android:layout_width="fill_parent"
-            android:src="@drawable/a"
             android:layout_height="150dp"
             android:scaleType="centerCrop" />
 

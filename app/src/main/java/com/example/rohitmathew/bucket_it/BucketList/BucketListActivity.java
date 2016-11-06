@@ -21,6 +21,8 @@ import com.example.rohitmathew.bucket_it.models.Bucket;
 
 import java.util.List;
 
+import io.realm.RealmResults;
+
 /**
  * Created by Eesh on 05/11/16.
  */
@@ -41,8 +43,6 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bucket_list);
-        final ImageView img = (ImageView) findViewById(R.id.img_thumbnail);
-        Glide.with(this).load("https://www.instagram.com/p/BINggopjIgUOxwiHkGfNKUitshNHbef0lcBaPE0/").fitCenter().into(img);
         setupRecyclerView();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -70,13 +70,15 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
     }
 
     @Override
-    public void showList(List<Bucket> buckets) {
+    public void showList(RealmResults<Bucket> buckets) {
         this.buckets = buckets;
         adapter.notifyDataSetChanged();
     }
 
     class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAdapter.CustomViewHolder> {
 
+
+        int drawables[] = { R.drawable.a, R.drawable.adventure, R.drawable.cooking, R.drawable.music, R.drawable.reading, R.drawable.travel };
 
         public CustomRecyclerAdapter() {
 
@@ -94,8 +96,8 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
         public void onBindViewHolder(CustomRecyclerAdapter.CustomViewHolder holder, int position) {
             Bucket bucket = buckets.get(position);
             holder.titleTV.setText(bucket.bucketName);
-            Glide.with(BucketListActivity.this).load(R.drawable.a).into(holder.imageView);
-            // holder.titleTV.setText(course.title);
+            int random = 0 + (int)(Math.random() * ((5 - 0) + 1));
+            Glide.with(BucketListActivity.this).load(drawables[random]).fitCenter().into(holder.imageView);
         }
 
         @Override

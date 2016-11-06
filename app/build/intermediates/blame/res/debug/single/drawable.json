@@ -8,16 +8,20 @@
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",
-        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_go_search_api_material.xml"
-    },
-    {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_go_search_api_material.xml"
+    },
+    {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/travel.jpg",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/res/drawable/travel.jpg"
     },
     {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
@@ -48,10 +52,6 @@
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/drawable/design_ic_visibility.xml"
     },
     {
-        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/np.jpg",
-        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/res/drawable/np.jpg"
-    },
-    {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_tab_indicator_material.xml"
     },
@@ -74,6 +74,10 @@
     {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_edit_text_material.xml",
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/music.jpg",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/res/drawable/music.jpg"
     },
     {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
@@ -144,6 +148,10 @@
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/notification_bg_low.xml"
     },
     {
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/adventure.jpg",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/res/drawable/adventure.jpg"
+    },
+    {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_overflow_material.xml",
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_menu_overflow_material.xml"
     },
@@ -170,6 +178,10 @@
     {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light_focused.xml",
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/drawable/common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/reading.jpg",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/res/drawable/reading.jpg"
     },
     {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
@@ -202,6 +214,10 @@
     {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_focused.xml",
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/cooking.jpg",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/src/main/res/drawable/cooking.jpg"
     },
     {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
