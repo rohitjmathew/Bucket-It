@@ -8,4 +8,6 @@ public interface BucketListPresenter {
 
 
     void onResume();
+
+    void deleteBucket(String bucketId);
 }

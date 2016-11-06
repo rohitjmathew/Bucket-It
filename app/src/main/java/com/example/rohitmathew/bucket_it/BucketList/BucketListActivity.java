@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.example.rohitmathew.bucket_it.BucketItemView.BucketViewActivity;
 import com.example.rohitmathew.bucket_it.R;
 import com.example.rohitmathew.bucket_it.models.Bucket;
 
+import io.realm.Realm;
 import io.realm.RealmResults;
 
 /**
@@ -104,7 +106,7 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
         }
 
 
-        class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
             TextView titleTV;
             ImageView imageView;
@@ -115,6 +117,7 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
                 titleTV = (TextView) itemView.findViewById(R.id.tv_movie);
                 imageView = (ImageView) itemView.findViewById(R.id.img_thumbnail);
                 itemView.setOnClickListener(this);
+                itemView.setOnLongClickListener(this);
             }
 
             @Override
@@ -125,6 +128,20 @@ public class BucketListActivity extends AppCompatActivity implements BucketListV
                 Intent intent = new Intent(BucketListActivity.this, BucketViewActivity.class);
                 intent.putExtra("bucketId", bucket.bucketId);
                 startActivity(intent);
+            }
+
+            @Override
+            public boolean onLongClick(View view) {
+
+                int position = getLayoutPosition();
+                Bucket bucket = buckets.get(position);
+                Log.e("ksjdfiu", bucket.bucketId);
+                presenter.deleteBucket(bucket.bucketId);
+                Realm.getDefaultInstance().beginTransaction();
+                buckets.deleteFromRealm(position);
+                Realm.getDefaultInstance().commitTransaction();
+                adapter.notifyDataSetChanged();
+                return true;
             }
         }
     }

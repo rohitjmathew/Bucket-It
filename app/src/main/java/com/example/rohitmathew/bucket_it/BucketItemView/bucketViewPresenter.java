@@ -6,4 +6,6 @@ package com.example.rohitmathew.bucket_it.BucketItemView;
 
 public interface BucketViewPresenter {
     void onResume();
+
+    void getItems(String bucketId);
 }

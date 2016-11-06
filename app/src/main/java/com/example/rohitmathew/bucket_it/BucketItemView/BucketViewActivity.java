@@ -6,8 +6,10 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import com.example.rohitmathew.bucket_it.R;
 import com.example.rohitmathew.bucket_it.models.Bucket;
 import com.example.rohitmathew.bucket_it.models.BucketItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
@@ -27,6 +30,8 @@ public class BucketViewActivity extends AppCompatActivity implements BucketView 
 
 
     BucketViewPresenter presenter = null;
+    RecyclerView recyclerView = null;
+    CustomRecyclerAdapter adapter = null;
     Realm realm = null;
     Bucket bucket = null;
     List<BucketItem> items = null;
@@ -35,13 +40,20 @@ public class BucketViewActivity extends AppCompatActivity implements BucketView 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bucket_main);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         setupRecyclerView();
+
         realm = Realm.getDefaultInstance();
         Intent intent = getIntent();
         String bucketId = intent.getStringExtra("bucketId");
         RealmResults<Bucket> results = realm.where(Bucket.class).equalTo("bucketId", bucketId).findAll();
         bucket = results.first();
-        items = bucket.bucketItemList;
+        Log.e("bucketName", " "+bucket.bucketName);
+        /*
+        Log.e("bucketitems", " "+ bucket.bucketItemList.size());
+        items = bucket.bucketItemList;*/
+        populate();
+        adapter.notifyDataSetChanged();
         presenter = new BucketViewPresenterImpl(this, getApplicationContext());
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +68,11 @@ public class BucketViewActivity extends AppCompatActivity implements BucketView 
     }
 
     private void setupRecyclerView() {
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        adapter = new CustomRecyclerAdapter();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -115,8 +132,21 @@ public class BucketViewActivity extends AppCompatActivity implements BucketView 
                     contentTV.setFocusableInTouchMode(true);
                     contentTV.setInputType(InputType.TYPE_CLASS_TEXT);
                     contentTV.requestFocus();
+                    checkBox.setChecked(false);
                 }
             }
+        }
+    }
+
+    void populate() {
+
+        items = new ArrayList<>();
+        for(int i = 1 ; i <= 3; i++) {
+
+            BucketItem bucketItem = new BucketItem();
+            bucketItem.setChecked(false);
+            bucketItem.setContent("Test " + i);
+            items.add(bucketItem);
         }
     }
 }

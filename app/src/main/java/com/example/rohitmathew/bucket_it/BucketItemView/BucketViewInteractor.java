@@ -1,8 +1,8 @@
 package com.example.rohitmathew.bucket_it.BucketItemView;
 
-import com.example.rohitmathew.bucket_it.models.Bucket;
+import com.example.rohitmathew.bucket_it.models.BucketItem;
 
-import java.util.List;
+import io.realm.RealmList;
 
 /**
  * Created by Eesh on 06/11/16.
@@ -10,11 +10,11 @@ import java.util.List;
 
 public interface BucketViewInteractor {
 
-
+    void fetchItems(String bucketId);
 
     public interface OnViewFetchedListener {
 
-        void onFetchSuccess(List<Bucket> buckets);
+        void onFetchSuccess(RealmList<BucketItem> items);
 
         void onFetchFail();
     }

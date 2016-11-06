@@ -15,4 +15,9 @@ public class BucketViewInteractorImpl implements BucketViewInteractor {
 
         networkAPI = NetworkAPI.getInstance(context);
     }
+
+    @Override
+    public void fetchItems(String bucketId) {
+
+    }
 }

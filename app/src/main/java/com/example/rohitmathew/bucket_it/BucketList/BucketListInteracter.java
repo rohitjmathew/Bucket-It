@@ -15,6 +15,8 @@ public interface BucketListInteracter {
 
     void fetchFromModel(OnListFetchedListener listener);
 
+    void deleteBucket(String bucketId);
+
     public interface OnListFetchedListener {
 
         void onFetchSuccess(RealmResults<Bucket> buckets);

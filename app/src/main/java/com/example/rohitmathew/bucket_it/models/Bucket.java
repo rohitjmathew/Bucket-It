@@ -21,6 +21,54 @@ public class Bucket extends RealmObject {
 
     public String uid;
 
+    public RealmList<BucketItem> getBucketItemList() {
+        return bucketItemList;
+    }
+
+    public void setBucketItemList(RealmList<BucketItem> bucketItemList) {
+        this.bucketItemList = bucketItemList;
+    }
+
+    public String getBucketId() {
+        return bucketId;
+    }
+
+    public void setBucketId(String bucketId) {
+        this.bucketId = bucketId;
+    }
+
+    public String getBucketName() {
+        return bucketName;
+    }
+
+    public void setBucketName(String bucketName) {
+        this.bucketName = bucketName;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getLast_updated() {
+        return last_updated;
+    }
+
+    public void setLast_updated(String last_updated) {
+        this.last_updated = last_updated;
+    }
+
     public RealmList<BucketItem> bucketItemList;
 
     public String createdAt;

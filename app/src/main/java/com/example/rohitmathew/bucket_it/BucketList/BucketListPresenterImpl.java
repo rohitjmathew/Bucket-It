@@ -34,4 +34,9 @@ public class BucketListPresenterImpl implements BucketListPresenter, BucketListI
     public void onResume() {
         interacter.fetchFromNetwork(this);
     }
+
+    @Override
+    public void deleteBucket(String bucketId) {
+        interacter.deleteBucket(bucketId);
+    }
 }

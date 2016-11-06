@@ -27,4 +27,9 @@ public class BucketListInteracterImpl implements BucketListInteracter {
     public void fetchFromModel(OnListFetchedListener listener) {
 
     }
+
+    @Override
+    public void deleteBucket(String bucketId) {
+        networkAPI.deleteBucket(bucketId);
+    }
 }

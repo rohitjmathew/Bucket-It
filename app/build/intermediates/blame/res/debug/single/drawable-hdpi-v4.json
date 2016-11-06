@@ -60,12 +60,12 @@
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-hdpi-v4/abc_ic_star_half_black_16dp.png"
     },
     {
-        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_pressed_holo_light.9.png",
-        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-hdpi-v4/abc_list_pressed_holo_light.9.png"
-    },
-    {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png",
         "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_pressed_holo_light.9.png",
+        "source": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-hdpi-v4/abc_list_pressed_holo_light.9.png"
     },
     {
         "merged": "/Users/Eesh/Documents/Projects/Android/Bucket-It/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/common_google_signin_btn_icon_dark_pressed.9.png",

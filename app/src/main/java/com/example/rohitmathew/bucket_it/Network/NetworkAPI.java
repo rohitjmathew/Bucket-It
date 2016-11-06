@@ -13,8 +13,11 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.rohitmathew.bucket_it.Auth.OnLoginListener;
+import com.example.rohitmathew.bucket_it.BucketItemView.BucketViewInteractor;
 import com.example.rohitmathew.bucket_it.BucketList.BucketListInteracter;
+import com.example.rohitmathew.bucket_it.CustomHurlStack;
 import com.example.rohitmathew.bucket_it.models.Bucket;
+import com.example.rohitmathew.bucket_it.models.BucketItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,6 +30,7 @@ import java.util.Map;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import io.realm.exceptions.RealmException;
 import io.realm.exceptions.RealmPrimaryKeyConstraintException;
 
 /**
@@ -49,7 +53,8 @@ public class NetworkAPI {
 
     NetworkAPI (Context context) {
         if(requestQueue == null) {
-            requestQueue = Volley.newRequestQueue(context);
+            CustomHurlStack customHurlStack = new CustomHurlStack();
+            requestQueue = Volley.newRequestQueue(context, customHurlStack);
             realm = Realm.getDefaultInstance();
         }
     }
@@ -106,6 +111,9 @@ public class NetworkAPI {
 
     private void parseBuckets(final JSONArray bucketsArray, BucketListInteracter.OnListFetchedListener listener) {
 
+        realm.beginTransaction();
+        realm.deleteAll();
+        realm.commitTransaction();
         List<String> jsonArray = new ArrayList<>();
         for(int idx = 0; idx < bucketsArray.length(); idx++) {
             Log.e("NetworkAPI#parseBuckets", "adding bucket");
@@ -181,5 +189,113 @@ public class NetworkAPI {
 
     public void setToken(String accessToken) {
         this.accessToken = accessToken;
+    }
+
+
+
+    public void deleteBucket(String bucketId) {
+
+        final Map<String, String> headers = new HashMap<>();
+        headers.put("accessToken", accessToken);
+        final Map<String, String> params = new HashMap<>();
+        params.put("bucketId", bucketId);
+        JsonObjectRequest request = new JsonObjectRequest( Request.Method.DELETE, baseURL + buckets, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.e("deleteBucket", ""+response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("deleteBucket", error.toString());
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return headers;
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                return params;
+            }
+        };
+
+        requestQueue.add(request);
+    }
+
+
+    public void getItems(final String bucketId, final BucketViewInteractor.OnViewFetchedListener listener) {
+
+        final Map<String, String> headers = new HashMap<>();
+        headers.put("accessToken", accessToken);
+        final Map<String, String> params = new HashMap<>();
+        params.put("bucketId", bucketId);
+        Log.e("NetworkAPI#getBuckets", accessToken);
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, baseURL + items, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.e("NetworkAPI", ""+response.toString());
+                processItemResponse(bucketId, response, listener);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                listener.onFetchFail();
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return headers;
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                return params;
+            }
+        };
+
+        requestQueue.add(request);
+    }
+
+    private void processItemResponse(String bucketId, JSONObject response, BucketViewInteractor.OnViewFetchedListener listener) {
+
+        try {
+            boolean success = response.getBoolean("success");
+            if(!success) {
+                listener.onFetchFail();
+            } else {
+                parseItems(bucketId, response.getJSONArray("buckets"), listener);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            listener.onFetchFail();
+        }
+    }
+
+    private void parseItems(String bucketId, final JSONArray itemsArray, BucketViewInteractor.OnViewFetchedListener listener) {
+
+        RealmResults<Bucket> result = realm.where(Bucket.class).equalTo("bucketId", bucketId).findAll();
+        Bucket bucket = result.first();
+        List<String> jsonArray = new ArrayList<>();
+        for(int idx = 0; idx < itemsArray.length(); idx++) {
+            Log.e("NetworkAPI#parseBuckets", "adding bucket");
+            try {
+                jsonArray.add(itemsArray.getJSONObject(idx).toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        realm.beginTransaction();
+        for (final String json:
+                jsonArray) {
+            try {
+                bucket.bucketItemList.add(realm.createObjectFromJson(BucketItem.class, json));
+            } catch (RealmException e) {
+                e.printStackTrace();
+            }
+        }
+        realm.commitTransaction();
+        listener.onFetchSuccess(bucket.bucketItemList);
     }
 }
