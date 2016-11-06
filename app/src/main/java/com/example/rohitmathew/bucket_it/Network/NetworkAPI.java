@@ -25,6 +25,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
+import io.realm.exceptions.RealmPrimaryKeyConstraintException;
+
 /**
  * Created by Eesh on 06/11/16.
  */
@@ -38,10 +42,15 @@ public class NetworkAPI {
     final String items = "/item";
     final String login = "/googleLogin";
     String accessToken = "";
+    Realm realm;
+
+
+    public NetworkAPI() { }
 
     NetworkAPI (Context context) {
         if(requestQueue == null) {
             requestQueue = Volley.newRequestQueue(context);
+            realm = Realm.getDefaultInstance();
         }
     }
 
@@ -95,19 +104,29 @@ public class NetworkAPI {
         }
     }
 
-    private void parseBuckets(JSONArray bucketsArray, BucketListInteracter.OnListFetchedListener listener) {
+    private void parseBuckets(final JSONArray bucketsArray, BucketListInteracter.OnListFetchedListener listener) {
 
-        List<Bucket> buckets = new ArrayList<>();
-        try {
-            for(int idx = 0; idx < bucketsArray.length(); idx++) {
-                Log.e("NetworkAPI#parseBuckets", "adding bucket");
-                buckets.add(new Bucket(bucketsArray.getJSONObject(idx)));
+        List<String> jsonArray = new ArrayList<>();
+        for(int idx = 0; idx < bucketsArray.length(); idx++) {
+            Log.e("NetworkAPI#parseBuckets", "adding bucket");
+            try {
+                jsonArray.add(bucketsArray.getJSONObject(idx).toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            Log.e("NetworkAPI#parseBuckets", "exception while parsing buckets");
-            e.printStackTrace();
         }
-        listener.onFetchSuccess(buckets);
+        realm.beginTransaction();
+        for (final String json:
+             jsonArray) {
+            try {
+                realm.createObjectFromJson(Bucket.class, json);
+            } catch (RealmPrimaryKeyConstraintException e) {
+                e.printStackTrace();
+            }
+        }
+        realm.commitTransaction();
+        RealmResults<Bucket> results = realm.where(Bucket.class).findAll();
+        listener.onFetchSuccess(results);
     }
 
     public void getAccessToken(String idToken, final OnLoginListener listener) {
